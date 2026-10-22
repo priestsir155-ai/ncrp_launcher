@@ -1,0 +1,60 @@
+name: Build NCRP Android APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout NCRP Launcher Source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Setup Gradle 8.7
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.7'
+
+      - name: Generate Android Signing Keystore
+        run: |
+          keytool -genkeypair -v \
+            -keystore app/ncrp-release-key.jks \
+            -keyalg RSA -keysize 2048 -validity 10000 \
+            -alias ncrp_key \
+            -storepass ncrp123456 \
+            -keypass ncrp123456 \
+            -dname "CN=Neon City Roleplay, OU=NCRP, O=NCRP, L=Kochi, ST=Kerala, C=IN"
+
+      - name: Build Signed NCRP Release & Debug APK
+        run: |
+          gradle assembleRelease assembleDebug --no-daemon
+          cp app/build/outputs/apk/release/app-release.apk NCRP_Mobile_Launcher.apk
+
+      - name: Upload NCRP_Mobile_Launcher.apk Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: NCRP_Mobile_Launcher_APK
+          path: NCRP_Mobile_Launcher.apk
+
+      - name: Publish APK to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0
+          name: "NCRP Mobile Launcher APK (Latest)"
+          body: "Download and install **NCRP_Mobile_Launcher.apk** on your Android phone to play on **NEON CITY ROLEPLAY (15.235.128.112:7047)**. Upload your `ncrp_custom_pack.zip` to this release to push automatic dress/skin updates to all players!"
+          files: NCRP_Mobile_Launcher.apk

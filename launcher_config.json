@@ -1,0 +1,32 @@
+{
+  "server_name": "NEON CITY ROLEPLAY",
+  "short_name": "NCRP",
+  "main_server_ip": "15.235.128.112",
+  "main_server_port": 7047,
+  "test_server_ip": "15.235.128.112",
+  "test_server_port": 7777,
+  "skins_version": 1,
+  "skins_zip_url": "https://github.com/YOUR_GITHUB_USERNAME/NCRP-Launcher/releases/download/v1.0/ncrp_custom_pack.zip",
+  "base_game_lite_url": "https://github.com/YOUR_GITHUB_USERNAME/NCRP-Launcher/releases/download/v1.0/gtasa_lite_cache.zip",
+  "social_links": {
+    "whatsapp": "https://chat.whatsapp.com/YOUR_INVITE_LINK",
+    "discord": "https://discord.gg/YOUR_INVITE_LINK",
+    "youtube": "https://youtube.com/@YOUR_CHANNEL",
+    "instagram": "https://instagram.com/YOUR_PAGE",
+    "website": "https://open.mp"
+  },
+  "news": [
+    {
+      "badge": "FEATURED \u00b7 LATEST",
+      "title": "Next Update \u2014 Custom Skins & open.mp Engine",
+      "subtitle": "Tap to read the full story \u2192",
+      "body": "Welcome to NEON CITY ROLEPLAY on our new open.mp server (15.235.128.112:7047)! All custom dresses, skins, vehicles, and map updates are automatically downloaded through this NCRP Mobile Launcher."
+    },
+    {
+      "badge": "NCRP EVENTS",
+      "title": "NCRP Gang Turf Wars & New Jobs",
+      "subtitle": "Tap to read details \u2192",
+      "body": "Join factions, gangs, public garages, and custom events in Neon City Roleplay. Make sure your RP nickname is set in Player Profile before pressing PLAY NOW!"
+    }
+  ]
+}

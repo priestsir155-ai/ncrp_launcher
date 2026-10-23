@@ -7,12 +7,13 @@
   "test_server_port": 7777,
   "skins_version": 1,
   "skins_zip_url": "https://raw.githubusercontent.com/priestsir155-ai/ncrp_launcher/main/ncrp_custom_pack.zip",
-  "base_game_lite_url": "",
+  "base_game_lite_url": "https://github.com/priestsir155-ai/ncrp_launcher/releases/download/v3.0/ncrp_game_cache.zip",
+  "fallback_cache_url": "https://raw.githubusercontent.com/MTHS1901/SAMP-MOBILE/master/SAMP-Cache.zip",
   "social_links": {
-    "whatsapp": "https://chat.whatsapp.com/YOUR_INVITE_LINK",
-    "discord": "https://discord.gg/YOUR_INVITE_LINK",
-    "youtube": "https://youtube.com/@YOUR_CHANNEL",
-    "instagram": "https://instagram.com/YOUR_PAGE",
+    "whatsapp": "https://chat.whatsapp.com/",
+    "discord": "https://discord.gg/",
+    "youtube": "https://youtube.com/",
+    "instagram": "https://instagram.com/",
     "website": "https://open.mp"
   }
 }
